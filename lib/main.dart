@@ -12,8 +12,22 @@ void main() {
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
 
     runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Game()
-    ));
+        debugShowCheckedModeBanner: false,
+        home: SafeArea(
+          child: Scaffold(
+            body: MyApp(),
+          ),
+        )));
   });
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/background.png"), fit: BoxFit.cover)),
+        child: Game());
+  }
 }
