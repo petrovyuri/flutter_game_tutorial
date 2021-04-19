@@ -10,7 +10,7 @@ class Bullet extends Entity {
   final double playerAngle;
   double _speed = 6;
 
-  Bullet({this.playerAngle, double playerX, double playerY}) : super("bullet") {
+  Bullet({required this.playerAngle, required double playerX, required double playerY}) : super("bullet") {
     x = playerX;
     y = playerY;
   }

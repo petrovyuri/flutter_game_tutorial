@@ -1,20 +1,20 @@
 import 'package:flutter/cupertino.dart';
 
 abstract class Entity {
-  
-  double x;
-  double y;
-  String spritename;
+  double x = 0;
+  double y = 0;
+  final String spriteName;
   bool visible = true;
   List sprites = [];
 
-  Entity(this.spritename) {
+  Entity(this.spriteName) {
     for (var i = 0; i < 4; i++) {
-      sprites.add(Image.asset("assets/$spritename$i.png"));
+      sprites.add(Image.asset("assets/$spriteName$i.png"));
     }
   }
 
   void update();
+
   void move();
 
   Widget build();

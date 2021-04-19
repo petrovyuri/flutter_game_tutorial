@@ -11,11 +11,10 @@ class Game extends StatefulWidget {
 }
 
 class _GameState extends State<Game> {
-  ReceivePort _receivePort;
-  Isolate _isolateLoop;
+  final ReceivePort _receivePort = ReceivePort();
+  late final Isolate _isolateLoop;
 
   void _startIsolateLoop() async {
-    _receivePort = ReceivePort();
     _isolateLoop = await Isolate.spawn(mainLoop, _receivePort.sendPort);
     _receivePort.listen((message) {
       GlobalVars.currentScene.update();
