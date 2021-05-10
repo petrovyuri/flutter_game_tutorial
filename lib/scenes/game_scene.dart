@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_game_tutorial/entities/bullet.dart';
 import 'package:flutter_game_tutorial/entities/player.dart';
 import 'package:flutter_game_tutorial/scenes/app_scene.dart';
 import 'package:flutter_game_tutorial/utilits/global_vars.dart';
 
-import '../utilits/global_vars.dart';
 import '../utilits/global_vars.dart';
 
 class GameScene extends AppScene {
@@ -92,6 +90,7 @@ class GameScene extends AppScene {
   }
 
   void _onShoot() {
-    _listBullets.add(Bullet(playerAngle: _player.getAngle, playerX: _player.x, playerY: _player.y));
+    _listBullets.add(Bullet(
+        playerAngle: _player.getAngle, playerX: _player.x, playerY: _player.y));
   }
 }

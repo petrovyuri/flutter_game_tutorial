@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_game_tutorial/entities/entity.dart';
 import 'package:flutter_game_tutorial/utilits/global_vars.dart';
 
@@ -18,7 +17,6 @@ class Player extends Entity {
   double _speed = 3;
   bool isAcceleration = false;
 
-
   get getAngle => _angle;
 
   @override
@@ -29,7 +27,7 @@ class Player extends Entity {
         child: visible
             ? Transform.rotate(
                 angle: _angle,
-                child: sprites.first,
+                child: sprites[currentSprite],
               )
             : SizedBox());
   }
@@ -62,10 +60,5 @@ class Player extends Entity {
 
     isMoveLeft = false;
     isMoveRight = false;
-  }
-
-  @override
-  void update() {
-    move();
   }
 }

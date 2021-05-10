@@ -1,8 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../utilits/global_vars.dart';
 import 'entity.dart';
 
@@ -10,7 +8,11 @@ class Bullet extends Entity {
   final double playerAngle;
   double _speed = 6;
 
-  Bullet({required this.playerAngle, required double playerX, required double playerY}) : super("bullet") {
+  Bullet(
+      {required this.playerAngle,
+      required double playerX,
+      required double playerY})
+      : super("bullet") {
     x = playerX;
     y = playerY;
   }
@@ -22,7 +24,7 @@ class Bullet extends Entity {
       left: x,
       child: Transform.rotate(
         angle: playerAngle,
-        child: sprites.first,
+        child: sprites[currentSprite],
       ),
     );
   }
@@ -31,13 +33,11 @@ class Bullet extends Entity {
   void move() {
     x += sin(playerAngle) * _speed;
     y -= cos(playerAngle) * _speed;
-  }
-
-  @override
-  void update() {
-    if (x > GlobalVars.screenWidth || y > GlobalVars.screenHeight || x < 0 || y < 0) {
+    if (x > GlobalVars.screenWidth ||
+        y > GlobalVars.screenHeight ||
+        x < 0 ||
+        y < 0) {
       visible = false;
     }
-    move();
   }
 }
